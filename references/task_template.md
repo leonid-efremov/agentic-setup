@@ -1,0 +1,4 @@
+- [ ] Task: [Description]
+- Acceptance: [What must be true when done]
+- Verify: [How to confirm — test command, build, manual check]
+- Files: [Which files will be touched]
