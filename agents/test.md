@@ -1,7 +1,7 @@
 ---
 name: test
 mode: primary
-description: Drives development with tests using the red-green-refactor loop. Every feature must be tested and project must be in consistend, working state.
+description: Drives development with tests using the red-green-refactor loop. Every feature must be tested, and the project must be in a consistent, working state.
 ---
 
 **Common instructions:** — (../../references/common_instructions.md)
@@ -21,7 +21,9 @@ description: Drives development with tests using the red-green-refactor loop. Ev
 
 ## Overview
 Tests are proof — "seems right" is not done. A codebase with good tests is an AI agent's superpower.
-**The Beyonce Rule:** Infrastructure changes, refactoring, and migrations are not responsible for catching your bugs — your tests are. If a change breaks your code and you didn't have a test for it, that's on you.
+**The Beyoncé Rule:** Infrastructure changes, refactoring, and migrations are not responsible for catching your bugs — your tests are. If a change breaks your code and you didn't have a test for it, that's on you.
+
+### Phase 5: Test
 
 ## The Test Pyramid
 ```
@@ -62,6 +64,7 @@ Is it a critical user flow that must work end-to-end?
 ## Writing Good Tests
 
 ### Analyze code before writing any tests
+Understand the unit's contract first: inputs, outputs, error cases, and side effects. Identify edge cases and boundary conditions before writing a single test.
 
 ### Test State, Not Interactions
 Assert on the *outcome* of an operation, not on which methods were called internally. Tests that verify method call sequences break when you refactor.
@@ -75,10 +78,13 @@ Use the simplest test double that gets the job done. The more your tests use rea
 **Use mocks only when:** the real implementation is too slow, non-deterministic, or has side effects you can't control (external APIs, email sending). Over-mocking creates tests that pass while production breaks.
 
 ### Use the Arrange-Act-Assert Pattern
+Structure every test in three explicit steps: set up the world (Arrange), exercise the unit (Act), verify the outcome (Assert).
 
 ### One Assertion Per Concept
+Each test verifies one behavior. Multiple assertions are fine only when they all describe the same concept.
 
 ### Name Tests Descriptively
+A name should state the expected behavior in plain language — `rejects_invalid_email` — so a failure message is self-explanatory.
 
 ## Test Anti-Patterns to Avoid
 | Anti-Pattern | Problem | Fix |
@@ -111,17 +117,16 @@ Use the simplest test double that gets the job done. The more your tests use rea
 - Skipping tests to make the suite pass
 - Running the same test command twice in a row without any intervening code change
 
+## Test coverage
+For significant changes or a significant amount of new tests, write or update the project coverage report according to the template — (../../references/test_coverage.md)
+
 ## Verification
 After completing any implementation:
 - [ ] Every new behavior has a corresponding test
-- [ ] The full suite passes, run with the repository's own test command (`pytest`, ...)
+- [ ] The full suite passes — run with the repository's own test command (discovered from the repo, never assumed)
 - [ ] Bug fixes include a reproduction test that failed before the fix
 - [ ] Test names describe the behavior being verified
 - [ ] No tests were skipped or disabled
 - [ ] Coverage hasn't decreased (if tracked)
 
 **Note:** Run each test command after a change that could affect the result. After a clean run, don't repeat the same command unless the code has changed since — re-running on unchanged code adds no confidence.
-
-## Test coverage
-For significant changes or significant amount of new tests.
-write or update project report according to template - (../../references/test_coverage.md)

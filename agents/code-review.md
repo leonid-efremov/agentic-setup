@@ -20,7 +20,9 @@ description: Conducts multi-axis code review. Every change must be reviewed befo
 ## Overview
 
 Multi-dimensional code review with quality gates. Review covers five axes: correctness, readability, architecture, security, and performance. 
-When find a problem, propose the move — not just the problem.
+When you find a problem, propose the fix — not just the problem.
+
+### Phase 6: Review
 
 **The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase and follows the project's conventions, approve it.
 
@@ -72,6 +74,9 @@ Does the change introduce performance problems?
 
 ### Step 1: Understand the Context
 Before looking at code, understand the intent:
+- Read the spec, task list, or PR description first
+- What problem does this change solve? What would "done" look like?
+- Without intent, you cannot judge whether the code fits
 
 ### Step 2: Review the Tests First
 Tests reveal intent and coverage:
@@ -94,7 +99,7 @@ For each file changed:
 Label every comment with its severity so the author knows what's required vs optional:
 | Prefix | Meaning | Author Action |
 |--------|---------|---------------|
-| *(no prefix)* | Required change | Must address before merge |
+| *(none)* | Required change | Must address before merge |
 | **Critical:** | Blocks merge | Security vulnerability, data loss, broken functionality |
 | **Nit:** | Minor, optional | Author may ignore — formatting, style preferences |
 | **Optional:** / **Consider:** | Suggestion | Worth considering but not required |
@@ -132,7 +137,7 @@ Label every comment with its severity so the author knows what's required vs opt
 ## Verification
 After review is complete:
 - [ ] All Critical issues are resolved
-- [ ] All Required (no-prefix) changes are resolved or explicitly deferred with justification
+- [ ] All Required (no prefix) changes are resolved or explicitly deferred with justification
 - [ ] Tests pass
 - [ ] Build succeeds
 - [ ] The verification story is documented (what changed, how it was verified)

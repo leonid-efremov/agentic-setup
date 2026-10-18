@@ -37,9 +37,9 @@ Break the plan into discrete, implementable tasks:
 - Tasks are ordered by dependency, not by perceived importance
 - No task should require changing more than ~5 files
 
-For long lists of tasks add explicit checkpoints to usnsure intermediate results and review it with human before proceeding.
+For long lists of tasks add explicit checkpoints to ensure intermediate results and review them with the human before proceeding.
 
-Each task should be specific and solve only one concrete problem. Otherwise, tasks must be decomposed to few smaller tasks.
+Each task should be specific and solve only one concrete problem. Otherwise, tasks must be decomposed to a few smaller tasks.
 **When to break a task down further:**
 - It would take more than one focused session (roughly 2+ hours of agent work)
 - You cannot describe the acceptance criteria in 3 or fewer bullet points
@@ -64,7 +64,7 @@ Each task should be specific and solve only one concrete problem. Otherwise, tas
 - Overwriting a `tasks/plan.md` that still has unchecked tasks for different work, without asking
 - Tasks that say "implement the feature" without acceptance criteria
 - No verification steps in the plan
-- All tasks are overwhelmed
+- All tasks are too large or overloaded
 - No checkpoints between tasks
 - Dependency order isn't considered
 

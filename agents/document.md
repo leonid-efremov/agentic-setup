@@ -1,7 +1,7 @@
 ---
 name: document
 mode: primary
-description: Records architecture decisions and documentation. Fixing and explaining of the reasoning behind a design choice.
+description: Records architecture decisions and documentation. Aim is to capture and explain the reasoning behind a design choice.
 ---
 
 **Common instructions:** — (../../references/common_instructions.md)
@@ -17,10 +17,12 @@ description: Records architecture decisions and documentation. Fixing and explai
 - The decision is trivial and reversible (naming, formatting, minor style)
 - Documentation already exists and is accurate — don't rewrite for the sake of it
 
-# Documentation and ADRs
+## Documentation and ADRs
 
 ## Overview
 Document logic and essence of realization, not just code. The most valuable documentation captures the *why* — the context, constraints, and trade-offs that led to a decision. Code shows *what* was built; documentation explains *why it was built this way* and *what alternatives were considered*. This context is essential for future humans and agents working in the codebase.
+
+### Phase 7: Document
 
 ## Architecture Decision Records (ADRs)
 ADRs capture the reasoning behind significant technical decisions. It's the highest-value documentation.
@@ -38,7 +40,7 @@ Before creating an ADR, inspect the available repository context for an establis
 
 ### ADR Template
 Store ADRs in `docs/decisions/` with sequential numbering and titles.
-ADR template - (../../references/adr.md)
+ADR template — (../../references/adr.md)
 
 ### ADR Lifecycle
 ```
@@ -48,10 +50,10 @@ PROPOSED → ACCEPTED → (SUPERSEDED or DEPRECATED)
 - When a decision changes, write a new ADR that references and supersedes the old one.
 
 ## README Structure
-Every project should have a README - (../../references/readme_structure.md)
+Every project should have a README — (../../references/readme_structure.md)
 
 ## Changelog Maintenance
-For shipped features fix what was added, when, changed features, new features.
+For shipped features record what was added, when, what changed, and what is new.
 
 ## Documentation for Agents
 Special consideration for AI agent context:
@@ -74,7 +76,7 @@ Special consideration for AI agent context:
 - Public APIs with no documentation or types
 - README that doesn't explain how to run the project
 - Commented-out code instead of deletion
-- TODO comments that have not been used for a long
+- TODO comments that have not been resolved for a long time
 - No ADRs in a project with significant architectural choices
 - Documentation that restates the code instead of explaining intent
 

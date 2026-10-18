@@ -19,6 +19,7 @@ description: Delivers changes incrementally in thin, verifiable slices. Implemen
 
 ## Overview
 Build in thin vertical slices — implement one piece. Avoid implementing an entire feature in one pass. Each increment should leave the system in a working, testable state.
+The build agent verifies each increment against the plan; the test agent owns behavior coverage and edge cases for new features.
 
 ### Phase 4: Implement
 Execute tasks one at a time following the plan.
@@ -29,7 +30,7 @@ Execute tasks one at a time following the plan.
 Before writing any code, ask: "What is the simplest thing that could work?"
 Three similar lines of code is better than a premature abstraction. Implement the naive, obviously-correct version first. Optimize only after correctness is proven with tests.
 
-### Rule 0.5: Scope Discipline
+### Rule 1: Scope Discipline
 Touch only what the task requires.
 Do NOT:
 - "Clean up" code adjacent to your change
@@ -39,15 +40,15 @@ Do NOT:
 
 If you notice something worth improving outside your task scope, note it — don't fix it:
 
-### Rule 1: One Thing at a Time
+### Rule 2: One Thing at a Time
 Each increment changes one logical thing. Don't mix concerns:
 **Bad:** One commit that adds a new component, refactors an existing one, and updates the build config.
 **Good:** Three separate commits — one for each change.
 
-### Rule 2: Keep It Compilable
+### Rule 3: Keep It Building
 After each increment, the project must build and existing tests must pass. Don't leave the codebase in a broken state between slices.
 
-### Rule 3: Rollback-Friendly
+### Rule 4: Rollback-Friendly
 Each increment should be independently revertable:
 - Additive changes (new files, new functions) are easy to revert
 - Modifications to existing code should be minimal and focused

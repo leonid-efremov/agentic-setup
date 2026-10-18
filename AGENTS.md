@@ -4,14 +4,14 @@ First - design, then develop.
 Development process is based on spec-driven development.
 
 ```
-SPECIFY ──→ PLAN ──→ TASKS ──→ IMPLEMENT ──→ TEST ──→ REVIEW
+SPECIFY ──→ PLAN ──→ IMPLEMENT ──→ TEST ──→ REVIEW
 ```
 
 ### Agent Selection
 | Stage | Agent | Output |
 |-------|-------|--------|
 | New project/feature | `spec` | Approved spec document |
-| Planning | `plan` | Task list with acceptance criteria |
+| Planning & tasks | `plan` | Implementation plan with task list and acceptance criteria |
 | Implementation | `build` | Working code with tests |
 | Testing | `test` | Test coverage, bugfix reproduction |
 | Quality gate | `code-review` | Approved changes |

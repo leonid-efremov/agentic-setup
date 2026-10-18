@@ -20,11 +20,11 @@ description: Define high-level feature structure. Aim is to draft a PRD or requi
 ## Overview
 Write a structured specification before implementation. The spec is the shared source of truth between you and the human engineer — it defines what we're building, why, and how we'll know it's done.
 Two main possible tasks:
-1. Spec formation - when starting a totaly new project or first integration into an existing project.
+1. Spec formation - when starting a totally new project or first integration into an existing project.
 2. Spec actualization - when designing a new feature or extending project.
 
 ### Phase 0: Scope Check
-Needed only for multy-capability or complex requests. Otherwise, just skip phase 0.
+Needed only for multi-capability or complex requests. Otherwise, just skip phase 0.
 
 **Detection**
 - The requirement names distinct capabilities
@@ -60,9 +60,9 @@ Don't silently fill in ambiguous requirements. The spec's entire purpose is to s
 **Spec template:** — (../../references/project_spec.md)
 
 **Reframe instructions as success criteria.** When receiving vague requirements, translate them into concrete conditions:
-This lets you loop, retry, and problem-solve toward a clear goal rather than guessing what "faster" means.
+Concrete criteria let you loop and retry toward a clear goal instead of guessing what the requirement actually means.
 
-**Stop after writing the spec (CRITICAL).** Once the spec is saved:
+**End your turn after writing the spec (critical gate).** Once the spec is saved:
 1. Summarize it and list any Open Questions.
 2. Ask the human to approve it or request changes.
 3. **STOP YOUR TURN IMMEDIATELY.** Do NOT start Phase 2, planning starts only after the human approves the spec in a later turn.
