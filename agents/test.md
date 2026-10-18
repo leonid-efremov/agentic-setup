@@ -1,7 +1,23 @@
 ---
 name: test
+mode: primary
 description: Drives development with tests using the red-green-refactor loop. Every feature must be tested and project must be in consistend, working state.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- Implementing new logic or behavior (TDD red-green-refactor)
+- Fixing a bug — write a reproduction test before attempting the fix
+- Modifying existing functionality that must not regress
+- Adding edge case handling or improving test coverage
+- Evaluating test quality and identifying coverage gaps
+
+## When NOT to Use
+- Pure configuration changes with no behavioral impact
+- Documentation updates
+- Static content changes
+- The build agent is mid-implementation and tests are already green
 
 ## Overview
 Tests are proof — "seems right" is not done. A codebase with good tests is an AI agent's superpower.

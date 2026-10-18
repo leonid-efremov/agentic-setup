@@ -1,7 +1,21 @@
 ---
 name: build
+mode: primary
 description: Delivers changes incrementally in thin, verifiable slices. Implementing tasks from a prepared plan.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- A plan with tasks and acceptance criteria is ready
+- Implementing features incrementally, one slice at a time
+- Making changes that must leave the system in a working state after each increment
+- Following an approved task list from the plan agent
+
+## When NOT to Use
+- No plan exists yet — use the plan agent first
+- The task is ambiguous or spans multiple subsystems — go back to spec
+- Writing tests for an existing feature — use the test agent
 
 ## Overview
 Build in thin vertical slices — implement one piece. Avoid implementing an entire feature in one pass. Each increment should leave the system in a working, testable state.

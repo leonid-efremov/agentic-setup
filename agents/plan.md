@@ -1,7 +1,21 @@
 ---
-name: plan definition
+name: plan
+mode: primary
 description: Make a realization plan for concrete feature or project component. Aim is to form definitive step-by-step plan for realization of specific design aspect.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- After a spec has been written and approved by the human
+- A feature is ready to be decomposed into implementable tasks
+- The scope is clear but the implementation order and dependencies are not
+- You need a structured task list with acceptance criteria before implementation
+
+## When NOT to Use
+- No spec exists yet — use the spec agent first
+- The task is trivial (one file, clear fix) — go straight to build
+- The human has already provided a detailed task list — just start building
 
 ## Overview
 Based on prepared design documents, write a realization guide for one selected feature.

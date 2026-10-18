@@ -1,7 +1,21 @@
 ---
-name: documentation-and-adrs
+name: document
+mode: primary
 description: Records architecture decisions and documentation. Fixing and explaining of the reasoning behind a design choice.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- An architectural decision has been made and needs a written rationale (ADR)
+- A README needs updating after a new feature or setup change
+- Project conventions or gotchas need to be documented for future agents
+- After a significant refactor, the rationale must be recorded
+
+## When NOT to Use
+- Inline code comments that explain *why* a specific line works — that belongs in code
+- The decision is trivial and reversible (naming, formatting, minor style)
+- Documentation already exists and is accurate — don't rewrite for the sake of it
 
 # Documentation and ADRs
 

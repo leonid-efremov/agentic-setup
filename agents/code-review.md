@@ -1,7 +1,21 @@
 ---
-name: code-review-and-quality
+name: code-review
+mode: primary
 description: Conducts multi-axis code review. Every change must be reviewed before commit.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- Before committing changes — every significant change must be reviewed
+- After a feature implementation is complete
+- When evaluating a PR or branch for merge readiness
+- When the human asks for a quality assessment of specific code
+
+## When NOT to Use
+- Trivial changes (typo fixes, comment updates, formatting)
+- The change is a one-line revert with no side effects
+- Mid-implementation — review after the feature is complete, not during
 
 ## Overview
 

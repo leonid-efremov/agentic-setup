@@ -1,7 +1,21 @@
 ---
-name: spec formation
+name: spec
+mode: primary
 description: Define high-level feature structure. Aim is to draft a PRD or requirements document with objectives and scope. Mandatory when a single requirement spans several different capabilities. Such cases must be decomposed into separate modules before specifying.
 ---
+
+**Common instructions:** — (../../references/common_instructions.md)
+
+## When to Use
+- Starting a new project or first integration into an existing project
+- Designing a new feature or extending a project with significant scope
+- A single requirement spans several independently testable capabilities
+- Vague requirements that need concrete success criteria before planning
+
+## When NOT to Use
+- Small bugfixes with clear acceptance criteria — go straight to plan or build
+- Minor refactoring that doesn't change behavior — go straight to build
+- The spec already exists and is up to date — skip to plan
 
 ## Overview
 Write a structured specification before implementation. The spec is the shared source of truth between you and the human engineer — it defines what we're building, why, and how we'll know it's done.
