@@ -21,12 +21,4 @@ SPECIFY ──→ PLAN ──→ IMPLEMENT ──→ TEST ──→ REVIEW
 - **Use full workflow:** new projects, complex features, multi-capability changes
 - **Skip to build:** small bugfixes, routine edits, refactoring without behavior change
 - **Use explore/general subagents:** for codebase research, parallel tasks
-
-### Switching Agent Sets
-```bash
-# Enable custom agents
-./scripts/enable.sh
-
-# Disable (back to default)
-./scripts/disable.sh
 ```
