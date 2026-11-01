@@ -10,6 +10,7 @@ AGENTS_DIR = REPO_ROOT / "agents"
 PERMISSIONS_FILE = REPO_ROOT / "permissions.yaml"
 
 OPENCODE_TARGET_CONFIG_DIR = REPO_ROOT / ".config" / "opencode-custom"
+OPENCODE_TARGET_AGENTS_DIR = OPENCODE_TARGET_CONFIG_DIR / "agents"
 
 
 def opencode_enable():
@@ -24,8 +25,8 @@ def opencode_enable():
 
 
 def opencode_disable():
-    shutil.rmtree(OPENCODE_TARGET_CONFIG_DIR, ignore_errors=True)
-    print("[+] Кастомный профиль отключен.")
+    shutil.rmtree(OPENCODE_TARGET_AGENTS_DIR, ignore_errors=True)
+    print("[+] Кастомные агенты удалены.")
 
 
 if __name__ == "__main__":

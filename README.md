@@ -10,23 +10,29 @@ spec → plan → build → test → code-review → document
 Each agent has a focused role with explicit gates between stages. The workflow ensures design happens before code, and every change is tested and reviewed.
 
 ## Usage
-Custom agents are loaded only when `OPENCODE_CONFIG_DIR` points at an adapter directory. The adapter lives outside the repository so OpenCode never picks it up as a project config:
+
+Requires OpenCode v2 and Python 3.13 with `pyyaml`. The manager compiles
+`agents/*.md` + `permissions.yaml` into the adapter directory
+`.config/opencode-custom/` (gitignored):
 
 ```bash
-# one-time setup
-mkdir -p "$HOME/.config/opencode-custom"
-ln -sfn "$PWD/agents" "$HOME/.config/opencode-custom/agents"
-ln -sfn "$PWD/opencode-permissions.json" "$HOME/.config/opencode-custom/opencode.json"
-```
+# generate / refresh the custom profile
+python agent_manager.py opencode-on
 
-```bash
-# custom agent set
-export OPENCODE_CONFIG_DIR="$HOME/.config/opencode-custom"
+# start OpenCode with the generated profile
+export OPENCODE_CONFIG_DIR="$PWD/.config/opencode-custom"
 opencode
-# unset OPENCODE_CONFIG_DIR
 ```
 
-Without the variable, `opencode` starts with the default `plan` + `build` agents from any directory. The global config is never modified; OpenCode installs its plugin dependencies into the adapter directory, not into this repository.
+```bash
+# remove the generated agent files (cli.json is preserved)
+python agent_manager.py opencode-off
+```
+
+The manager writes `agents/*.md` in OpenCode v2 frontmatter format. Built-in
+agents remain available: `explore` and `general` subagents, plus the hidden
+`compaction`, `summary`, and `title` system agents. Local `build.md` and
+`plan.md` intentionally override the built-in primary agents of the same name.
 
 ## Agents
 | Agent | Stage | When to Use |
@@ -47,29 +53,38 @@ Without the variable, `opencode` starts with the default `plan` + `build` agents
 | Parallel investigation | `general` subagent |
 
 ## Agent Permissions
-Tool boundaries live in `opencode-permissions.json` (object syntax, last matching rule wins), exposed to OpenCode as `opencode.json` in the adapter directory:
+Tool boundaries live in `permissions.yaml`. The adapter translates them into the
+OpenCode v2 `permission` frontmatter field:
 
 | Agent | `edit` boundary | Rationale |
 |-------|-----------------|-----------|
 | `spec` | only `docs/**` and root `*.md` | designs, must not touch code |
 | `plan` | only `docs/**` and root `*.md` | decomposes, must not touch code |
 | `document` | only `docs/**` and root `*.md` | documents, must not change logic |
-| `build` | `allow` | implements code |
-| `test` | `allow` | writes tests/fixes |
+| `build` | `src/**`, `lib/**`, root `*.toml` | implements code |
+| `test` | `tests/**`, root `*.toml`, `pytest.ini` | writes tests/fixes |
 | `code-review` | `deny` | read-only reviewer — reports, never edits |
 
-Read-only agents still get read access; only `edit` is constrained here. Extend `opencode-permissions.json` (e.g. `shell` rules) to tighten further.
+Write/command lists become a glob → action map with `"*": deny` first, so
+anything not explicitly listed is blocked. `code-review` has no write or shell
+access at all. Read-only agents still get read access; only `edit` and `bash`
+are constrained here. Extend `permissions.yaml` to tighten other tools.
 
 ## Repository Structure
 ```
-agents/                   Agent definitions (primary agents)
-opencode-permissions.json Per-agent tool permissions (adapter config)
+agent_manager.py          CLI: opencode-on / opencode-off
+agent_config.py           Loads agents + permissions.yaml
+adapters/opencode2.py     Compiles agents into OpenCode v2 frontmatter
+agents/                   Agent definitions (markdown + YAML frontmatter)
+permissions.yaml          Per-agent tool permissions
 references/               Templates, common instructions, shared docs
 skills/                   OpenCode skills (optional)
 AGENTS.md                 Project-level agent workflow instructions
 ```
 
-The adapter directory `~/.config/opencode-custom/` contains only symlinks to `agents/` and `opencode-permissions.json` (as `opencode.json`). Remove it to uninstall.
+`.config/opencode-custom/` is generated and gitignored. It contains the compiled
+`agents/*.md` and an optional user-managed `cli.json`; `opencode-off` removes
+only the generated `agents/` directory.
 
 ## References
 - [agent-skills](https://github.com/addyosmani/agent-skills) — base principles and main concept
