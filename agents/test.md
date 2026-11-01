@@ -1,6 +1,5 @@
 ---
 name: test
-mode: primary
 description: Drives development with tests using the red-green-refactor loop. Every feature must be tested, and the project must be in a consistent, working state.
 ---
 

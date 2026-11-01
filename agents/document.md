@@ -1,6 +1,5 @@
 ---
 name: document
-mode: primary
 description: Records architecture decisions and documentation. Aim is to capture and explain the reasoning behind a design choice.
 ---
 

@@ -1,0 +1,68 @@
+version: "1.0.0"
+agents:
+  spec:
+    file_access:
+      read:
+        - "docs/**"
+        - "*.md"
+      write:
+        - "docs/**"
+        - "*.md"
+    shell_access:
+      allow: false
+
+  plan:
+    file_access:
+      read:
+        - "**/*"
+      write:
+        - "docs/**"
+        - "*.md"
+    shell_access:
+      allow: false
+
+  build:
+    file_access:
+      read:
+        - "**/*"
+      write:
+        - "src/**"
+        - "lib/**"
+        - "*.toml"
+    shell_access:
+      allow: true
+      allowed_commands:
+        - "uv lock"
+        - "uv add"
+
+  test:
+    file_access:
+      read:
+        - "**/*"
+      write:
+        - "tests/**"
+        - "*.toml"
+        - "pytest.ini"
+    shell_access:
+      allow: true
+      allowed_commands:
+        - "pytest"
+        - "python -m pytest"
+
+  code-review:
+    file_access:
+      read:
+        - "**/*"
+      write: []
+    shell_access:
+      allow: false
+
+  document:
+    file_access:
+      read:
+        - "**/*"
+      write:
+        - "docs/**"
+        - "*.md"
+    shell_access:
+      allow: false

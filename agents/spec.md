@@ -1,6 +1,5 @@
 ---
 name: spec
-mode: primary
 description: Define high-level feature structure. Aim is to draft a PRD or requirements document with objectives and scope. Mandatory when a single requirement spans several different capabilities. Such cases must be decomposed into separate modules before specifying.
 ---
 

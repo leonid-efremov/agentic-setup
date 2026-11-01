@@ -1,6 +1,5 @@
 ---
 name: build
-mode: primary
 description: Delivers changes incrementally in thin, verifiable slices. Implementing tasks from a prepared plan.
 ---
 

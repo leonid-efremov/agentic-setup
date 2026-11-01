@@ -1,6 +1,5 @@
 ---
 name: plan
-mode: primary
 description: Make a realization plan for concrete feature or project component. Aim is to form definitive step-by-step plan for realization of specific design aspect.
 ---
 

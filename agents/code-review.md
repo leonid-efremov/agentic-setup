@@ -1,6 +1,5 @@
 ---
 name: code-review
-mode: primary
 description: Conducts multi-axis code review. Every change must be reviewed before commit.
 ---
 
