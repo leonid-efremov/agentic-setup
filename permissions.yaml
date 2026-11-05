@@ -29,11 +29,19 @@ agents:
         - "src/**"
         - "lib/**"
         - "*.toml"
+        - ".gitignore"
     shell_access:
       allow: true
-      allowed_commands:
-        - "uv lock"
-        - "uv add"
+      allowed_commands:    
+        - "uv *"
+        - "git *"
+        - "cat *"
+        - "echo *"
+        - "ls *"
+        - "pwd *"
+        - "mkdir *"
+        - "cp *"
+        - "which *"
 
   test:
     file_access:
