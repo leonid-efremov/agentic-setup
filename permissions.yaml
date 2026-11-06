@@ -32,8 +32,10 @@ agents:
         - ".gitignore"
     shell_access:
       allow: true
-      allowed_commands:    
+      allowed_commands:
         - "uv *"
+        - "python *"
+        - ".venv/Scripts/*"
         - "git *"
         - "cat *"
         - "echo *"
@@ -42,6 +44,10 @@ agents:
         - "mkdir *"
         - "cp *"
         - "which *"
+        - "grep *"
+        - "docker *"
+        - "head *"
+        - "sleep *"
 
   test:
     file_access:
