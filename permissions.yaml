@@ -30,6 +30,7 @@ agents:
         - "lib/**"
         - "*.toml"
         - ".gitignore"
+        - "*.md"
     shell_access:
       allow: true
       allowed_commands:
@@ -48,6 +49,10 @@ agents:
         - "docker *"
         - "head *"
         - "sleep *"
+        - "cat *"
+        - "wc *"
+        - "sed *"
+        - "bash *"
 
   test:
     file_access:
