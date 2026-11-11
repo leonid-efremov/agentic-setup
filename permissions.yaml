@@ -28,9 +28,10 @@ agents:
       write:
         - "src/**"
         - "lib/**"
-        - "*.toml"
         - ".gitignore"
+        - "*.toml"
         - "*.md"
+        - "*.yaml"
     shell_access:
       allow: true
       allowed_commands:
@@ -48,11 +49,14 @@ agents:
         - "grep *"
         - "docker *"
         - "head *"
+        - "tail *"
+        - "sort *"
         - "sleep *"
         - "cat *"
         - "wc *"
         - "sed *"
         - "bash *"
+        - "curl *"
 
   test:
     file_access:
