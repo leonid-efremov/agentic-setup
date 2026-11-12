@@ -35,10 +35,6 @@ agents:
     shell_access:
       allow: true
       allowed_commands:
-        - "uv *"
-        - "python *"
-        - ".venv/Scripts/*"
-        - "git *"
         - "cat *"
         - "echo *"
         - "ls *"
@@ -47,7 +43,6 @@ agents:
         - "cp *"
         - "which *"
         - "grep *"
-        - "docker *"
         - "head *"
         - "tail *"
         - "sort *"
@@ -57,6 +52,17 @@ agents:
         - "sed *"
         - "bash *"
         - "curl *"
+        - "git *"
+        - "git status *"
+        - "git diff *"
+        - "git log *"
+        - "git ls-files *"
+        - "git rm *"
+        - "git clean *"
+        - "docker *"
+        - "uv *"
+        - "python *"
+        - ".venv/Scripts/*"
 
   test:
     file_access:
@@ -69,10 +75,34 @@ agents:
     shell_access:
       allow: true
       allowed_commands:
+        - "cat *"
+        - "echo *"
+        - "ls *"
+        - "pwd *"
+        - "mkdir *"
+        - "cp *"
+        - "which *"
+        - "grep *"
+        - "head *"
+        - "tail *"
+        - "sort *"
+        - "sleep *"
+        - "cat *"
+        - "wc *"
+        - "sed *"
+        - "bash *"
+        - "curl *"
+        - "git *"
+        - "git status *"
+        - "git diff *"
+        - "git log *"
+        - "git ls-files *"
+        - "git rm *"
+        - "git clean *"
+        - "docker *"
         - "pytest *"
         - "python -m pytest *"
         - "uv run pytest *"
-        - "docker *"
 
   code-review:
     file_access:
