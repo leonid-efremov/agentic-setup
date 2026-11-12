@@ -69,8 +69,10 @@ agents:
     shell_access:
       allow: true
       allowed_commands:
-        - "pytest"
-        - "python -m pytest"
+        - "pytest *"
+        - "python -m pytest *"
+        - "uv run pytest *"
+        - "docker *"
 
   code-review:
     file_access:
