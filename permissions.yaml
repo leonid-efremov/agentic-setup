@@ -43,6 +43,7 @@ agents:
         - "cp *"
         - "which *"
         - "grep *"
+        - "find *"
         - "head *"
         - "tail *"
         - "sort *"
@@ -71,6 +72,7 @@ agents:
       write:
         - "tests/**"
         - "*.toml"
+        - "*.yaml"
         - "pytest.ini"
     shell_access:
       allow: true
@@ -82,6 +84,7 @@ agents:
         - "mkdir *"
         - "cp *"
         - "which *"
+        - "find *"
         - "grep *"
         - "head *"
         - "tail *"
